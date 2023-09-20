@@ -1,51 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity} from "react-native"
-//import Lab3Component from './components/Lab3Component';
+import { View, Text, TextInput, StyleSheet, Button, TouchableOpacity} from "react-native";
+import Lab3Component from './components/Lab3Component';
 //
 //<Text>Open up App.js to start working on your app!</Text>
 //<StatusBar style="auto" />
 //
 export default function App() {
-  const [firstName, setFirstName] = React.useState;
-    const [lastName, setLastName] = React.useState;
-    const [email, setEmail] = React.useState;
-
-    const clearDetails = () =>{
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-    }
-    const sendClicked = () =>{
-        //alert('The Button Component Clicked');
-        alert(`Thank you for entring your details: ${firstName} ${lastName} : ${email}`)
-        //clearDetails();
-    }
-
-    const clearClicked= () =>{
-        alert('Details Cleared');
-        clearDetails();
-    }
-    
     return (
-        <View>
-            <TextInput placeholder = "Enter your First Name"
-            onChangText= {firstName=> setFirstName(firstName)}/>
-
-            <TextInput placeholder = "Enter your Last Name"
-            onChangText= {lastName=> setLastName(lastName)}/>
-
-            <TextInput placeholder = "Enter your Email"
-            onChangText= {email=> setEmail(email)}/>
-
-            <Button onPress={sendClicked} title = "Click Me Button"></Button>
-
-            <TouchableOpacity onPress = {clearClicked}>
-                <Text style={styles.clearText}>Clear</Text>
-            </TouchableOpacity> 
+        <View style = {styles.container}>
+            <Lab3Component/>
         </View>   
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -53,9 +20,5 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
-    },
-
-    clearText: {
-        color: '#f8073e',
     },
   });

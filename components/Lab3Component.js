@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity} from "react-native"
+import { View, Text, TextInput, StyleSheet, Button, TouchableOpacity} from "react-native";
 
 export default function Lab3Component(){
-    const [firstName, setFirstName] = React.useState;
-    const [lastName, setLastName] = React.useState;
-    const [email, setEmail] = React.useState;
+    const [firstName, setFirstName] = React.useState("");
+    const [lastName, setLastName] = React.useState("");
+    const [email, setEmail] = React.useState("");
 
     const clearDetails = () =>{
         setFirstName("");
@@ -23,24 +23,34 @@ export default function Lab3Component(){
     }
     
     return (
-        <View>
-            <TextInput placeholder = "Enter your First Name"
-            onChangText= {firstName=> setFirstName(firstName)}/>
+        <View style = {styles.container}>
+          <Text style={styles.heading}>REGISTRATION</Text>
+            <Text>Contact Details:</Text>
+            
+            <TextInput style={styles.entryBox}
+            placeholder = "Enter your First Name"
+            value={firstName}
+            onChangeText= {firstName=> setFirstName(firstName)}/>
 
-            <TextInput placeholder = "Enter your Last Name"
-            onChangText= {lastName=> setLastName(lastName)}/>
+            <TextInput style={styles.entryBox} 
+            placeholder = "Enter your Last Name"
+            value={lastName}
+            onChangeText= {lastName=> setLastName(lastName)}/>
 
-            <TextInput placeholder = "Enter your Email"
-            onChangText= {email=> setEmail(email)}/>
-
-            <Button onPress={sendClicked} title = "Click Me Button"></Button>
+            <TextInput style={styles.entryBox} 
+            placeholder = "Enter your Email"
+            value={email}
+            onChangeText= {email=> setEmail(email)}/>
+            <Text></Text>
+            <Button onPress={sendClicked} title = "Send Details"></Button>
 
             <TouchableOpacity onPress = {clearClicked}>
                 <Text style={styles.clearText}>Clear</Text>
             </TouchableOpacity> 
+            {/* <Text>Hello</Text> */}
         </View>   
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -50,7 +60,27 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
 
+    heading:{
+      fontSize: 30,
+      margin: 15,
+    },
+
     clearText: {
-        color: '#f8073e'
+        color: '#f8073e',
+        fontSize: 16,
+        borderWidth: 1,
+        paddingLeft:38,
+        paddingRight:38,
+        borderColor: '#f8073e',
+        margin: 1,
+    },
+
+    entryBox: {
+      borderColor: '#000',
+      borderWidth: 1,
+      padding: 3,
+      margin:2,
+      minWidth: 225,
+      borderRadius: 10,
     }
   });
