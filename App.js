@@ -56,6 +56,6 @@ const styles = StyleSheet.create({
     },
 
     clearText: {
-        color: '#f8073e'
-    }
+        color: '#f8073e',
+    },
   });
